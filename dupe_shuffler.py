@@ -15,7 +15,7 @@ from enums import Interests
 from PIL import Image
 
 COMPARE_SKIP = 1
-TRUE_THRESHOLD = 100
+TRUE_THRESHOLD = 250
 SHUFFLE_L_X = 933+10
 SHUFFLE_M_X = 1338+10
 SHUFFLE_R_X = 1743+10
@@ -88,7 +88,6 @@ class Clicker(multiprocessing.Process):
             mse += (pa - im2Data[i]) ** 2
             count += 1
         mse = (float(mse) / count)
-        print(mse)
         if(TRUE_THRESHOLD > mse):
             return True
         else:
